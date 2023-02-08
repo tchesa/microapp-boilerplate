@@ -1,6 +1,17 @@
 import { FC } from 'react';
 import { AppDetailsHeader, TextInputLeftComponent } from '@/components';
-import { Stack, Flex, Select, TextInput, Textarea, Group, Text, Checkbox, Grid, Button } from '@mantine/core';
+import {
+  Stack,
+  Flex,
+  Select,
+  TextInput,
+  Textarea,
+  Group,
+  Text,
+  Checkbox,
+  Grid,
+  Button,
+} from '@mantine/core';
 
 const Home: FC = () => {
   return (
@@ -26,52 +37,48 @@ const Home: FC = () => {
             label="URL"
           />
 
-          <Textarea
-            placeholder="Insert body elements here"
-            label="Body"
-          />
+          <Textarea placeholder="Insert body elements here" label="Body" />
 
           <Group grow>
-            <TextInput
-              placeholder="Header key"
-              label="Custom Headers"
-            />
+            <TextInput placeholder="Header key" label="Custom Headers" />
 
-            <TextInput
-              placeholder="Header value"
-              label="&nbsp;"
-            />
+            <TextInput key="" placeholder="Header value" label="&nbsp;" />
           </Group>
 
-          <Text underline weight={600} size={14}>Add custom header</Text>
+          <Text underline weight={600} size={14}>
+            Add custom header
+          </Text>
 
           <Grid grow>
             <Grid.Col sm={6}>
-              <Checkbox
-                label="JSON Content-type"
-              />
+              <Checkbox label="JSON Content-type" />
             </Grid.Col>
-            
+
             <Grid.Col sm={6}>
-              <Checkbox
-                label="Accept self-signed certs"
-              />
+              <Checkbox label="Accept self-signed certs" />
             </Grid.Col>
 
             <Grid.Col>
-              <Checkbox
-                label="Verbose"
-              />
+              <Checkbox label="Verbose" />
             </Grid.Col>
           </Grid>
 
           <Group position="apart">
-            <Text weight={700} size={16} align="left">Preview</Text>
+            <Text weight={700} size={16} align="left">
+              Preview
+            </Text>
             <Button color="dark">Copy</Button>
           </Group>
 
           {/* Testing purposes only, please avoid inline styling and use Mantine or our reusable components */}
-          <div style={{ height: 300, width: '100%', borderRadius: 4, border: '1px solid #EAEAEA' }} />
+          <div
+            style={{
+              height: 300,
+              width: '100%',
+              borderRadius: 4,
+              border: '1px solid #EAEAEA',
+            }}
+          />
         </Stack>
       </Flex>
     </>
