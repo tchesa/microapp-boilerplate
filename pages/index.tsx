@@ -14,7 +14,7 @@ const Home: FC = () => {
         <Stack w={{ base: '100%', sm: '50%' }}>
           <Select
             w="100%"
-            data={['React', 'Angular', 'Svelte', 'Vue']}
+            data={['GET', 'POST', 'PUT', 'DELETE']}
             placeholder="Select a method"
             label="HTTP Method"
           />
