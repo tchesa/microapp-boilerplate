@@ -42,7 +42,7 @@ const Home: FC = () => {
           <Group grow>
             <TextInput placeholder="Header key" label="Custom Headers" />
 
-            <TextInput key="" placeholder="Header value" label="&nbsp;" />
+            <TextInput placeholder="Header value" label="&nbsp;" />
           </Group>
 
           <Text underline weight={600} size={14}>
