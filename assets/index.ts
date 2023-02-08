@@ -1,0 +1,9 @@
+export { default as emailShareLogo } from './email-share-logo.svg';
+export { default as linkedInShareLogo } from './linkedin-share-logo.svg';
+export { default as logo } from './logo.svg';
+export { default as logoDark } from './logo-white.svg';
+export { default as logoFull } from './logo-full.svg';
+export { default as logoFullDark } from './logo-full-dark.svg';
+export { default as tikTokIcon } from './tiktok.svg';
+export { default as twitterIcon } from './twitter.svg';
+export { default as twitterShareLogo } from './twitter-share-logo.svg';

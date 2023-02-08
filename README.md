@@ -1,38 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<img alt='Typescript' src='https://img.shields.io/badge/Typescript-100000?style=for-the-badge&logo=Typescript&logoColor=white&labelColor=3456FF&color=3456FF'/><img alt='Nextjs' src='https://img.shields.io/badge/Next.js-100000?style=for-the-badge&logo=Nextjs&logoColor=white&labelColor=3456FF&color=000000'/><img alt='Mantine' src='https://img.shields.io/badge/Mantine-100000?style=for-the-badge&logo=Mantine&logoColor=white&labelColor=3456FF&color=37ace7'/>
 
 ## Getting Started
 
-First, run the development server:
+First:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the app locally:
+```bash
+yarn dev
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Open [https://localhost:3000](https://localhost:3000) with your browser.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Creating a micro app
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Please check our micro app details [template](pages/index.tsx) page so you can have an idea on how to create one.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## UI
 
-## Learn More
+We are using Mantine for our UI. You can see available components [here](https://ui.mantine.dev/).
 
-To learn more about Next.js, take a look at the following resources:
+See the list of reusable components:
+- [AppCard](components/AppCard/AppCard.tsx)
+- [AppDetailsHeader](components/AppDetailsHeader/AppDetailsHeader.tsx)
+- [ColorSchemeToggle](components/ColorSchemeToggle/ColorSchemeToggle.tsx)
+- [Footer](components/Footer/Footer.tsx)
+- [Logo](components/Logo/Logo.tsx)
+- [NavBar](components/NavBar/NavBar.tsx)
+- [Newsletter](components/Newsletter/Newsletter.tsx)
+- [TextInputLeftComponent](components/TextInputLeftComponent/TextInputLeftComponent.tsx)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Please check Mantine's [documentation](https://mantine.dev/) for more information on how to use it.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Layout
 
-## Deploy on Vercel
+There is Layout provider that wraps the entire app. Also, there is a `MainLayout` that is being used for all the routes, so when you create a new page, it will come with the `NavBar` and `Footer`, if your page doesn't need the footer, please check [LayoutProvider](providers/Layout/LayoutProvider.tsx) to see how it works.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<em>Note: We are not using the benefits of the experimental `app` folder in Next.js 13, but we'll change this once it gets more stable.</em>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Folder structure
+
+- assets
+- components
+- layouts
+- pages
+- providers
+- public
