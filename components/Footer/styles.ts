@@ -2,8 +2,6 @@ import { createStyles } from '@mantine/core';
 
 export const useStyles = createStyles((theme) => ({
   footer: {
-    display: 'absolute',
-    bottom: 0,
     width: '100vw',
     paddingTop: theme.spacing.xl * 2,
     paddingBottom: theme.spacing.xl * 2,
@@ -82,15 +80,13 @@ export const useStyles = createStyles((theme) => ({
     marginTop: theme.spacing.xl,
     paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl,
-    borderTop: `1px solid ${
-      theme.colors.dark[4]
-    }`,
+    borderTop: `1px solid ${theme.colors.dark[4]}`,
 
     [theme.fn.smallerThan('sm')]: {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
     },
   },
 
@@ -98,7 +94,7 @@ export const useStyles = createStyles((theme) => ({
     [theme.fn.smallerThan('sm')]: {
       order: -1,
       marginBottom: 10,
-    }
+    },
   },
 
   social: {

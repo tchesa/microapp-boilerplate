@@ -4,12 +4,11 @@ export const useStyles = createStyles((theme) => ({
   mainContainer: {
     display: 'flex',
     flexDirection: 'column',
-    height: '100vh',
-    overflow: 'auto'
+    overflow: 'auto',
   },
   childrenContainer: {
     width: '100%',
-    overflow: 'auto'
+    overflow: 'auto',
   },
   children: {
     display: 'flex',
@@ -18,6 +17,6 @@ export const useStyles = createStyles((theme) => ({
     justifyContent: 'flex-start',
     alignItems: 'center',
     marginTop: theme.spacing.xl * 4,
-    paddingBottom: theme.spacing.xl * 4
+    paddingBottom: theme.spacing.xl * 4,
   },
 }));
