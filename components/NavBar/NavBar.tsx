@@ -1,52 +1,49 @@
-import { Header, Autocomplete, Group, Burger, Button } from '@mantine/core';
-import { useDisclosure, useMediaQuery } from '@mantine/hooks';
+import { FC, useState } from 'react';
+import { useHandleOpenCommandPalette } from 'react-cmdk';
+import { Header, Group, Input, ActionIcon, Container } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import { IconSearch } from '@tabler/icons-react';
 import { ColorSchemeToggle, Logo } from '@/components';
 import { useStyles } from './styles';
+import Link from 'next/link';
 
-interface HeaderSearchProps {
-  links: { link: string; label: string }[];
-}
+const NavBar: FC = () => {
+  const [isModalOpened, setModalOpened] = useState<boolean>(false);
 
-const NavBar = ({ links }: HeaderSearchProps) => {
-  const [opened, { toggle }] = useDisclosure(false);
   const { classes } = useStyles();
   const matches = useMediaQuery('(min-width: 992px)');
 
-  const items = links.map((link) => (
-    <a
-      key={link.label}
-      href={link.link}
-      className={classes.link}
-      onClick={(event) => event.preventDefault()}
-    >
-      {link.label}
-    </a>
-  ));
+  useHandleOpenCommandPalette(setModalOpened);
 
   return (
-    <Header height={56} className={classes.header} fixed>
-      <div className={classes.inner}>
-        <Group>
-          <Burger opened={opened} onClick={toggle} size="sm" hidden={matches} />
-          <Logo full={matches} />
-          <Group ml={50} spacing={5} className={classes.links}>
-            {items}
-            <Button color="dark">Suggest an App</Button>
+    <>
+      <Header height={56} className={classes.header} fixed>
+        <Container className={classes.inner}>
+          <Group>
+            <Link href="/">
+              <Logo full={matches} />
+            </Link>
           </Group>
-        </Group>
 
-        <Group>
-          <Autocomplete
-            className={classes.search}
-            placeholder="Search"
-            icon={<IconSearch size={16} />}
-            data={['React', 'Angular', 'Vue', 'Next.js', 'Riot.js', 'Svelte', 'Blitz.js']}
-          />
-          <ColorSchemeToggle />
-        </Group>
-      </div>
-    </Header>
+          <Group>
+            <ActionIcon
+              onClick={() => setModalOpened(true)}
+              size="lg"
+              className={classes.searchIcon}
+            >
+              <IconSearch size={18} />
+            </ActionIcon>
+            <Input
+              onClick={() => setModalOpened(true)}
+              className={classes.search}
+              placeholder="Search ( ⌘ + k )"
+              icon={<IconSearch size={16} />}
+            />
+            <ColorSchemeToggle />
+          </Group>
+        </Container>
+      </Header>
+    </>
   );
 };
 

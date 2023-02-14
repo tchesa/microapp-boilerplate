@@ -16,7 +16,7 @@ export const useStyles = createStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    marginTop: theme.spacing.xl * 4,
+    marginTop: theme.spacing.xl * 3,
     paddingBottom: theme.spacing.xl * 4,
   },
 }));

@@ -21,6 +21,7 @@ const Home: FC = () => {
         subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       />
 
+      {/* TODO: Please add your micro app code here */}
       <Flex w="100%" justify="flex-start" align="flex-start">
         <Stack w={{ base: '100%', sm: '50%' }}>
           <Select
