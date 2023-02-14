@@ -8,7 +8,14 @@ First:
 yarn install
 ```
 
+Install husky:
+
+```bash
+yarn prepare
+```
+
 Run the app locally:
+
 ```bash
 yarn dev
 ```
@@ -17,13 +24,14 @@ Open [https://localhost:3000](https://localhost:3000) with your browser.
 
 ## Creating a micro app
 
-Please check our micro app details [template](pages/index.tsx) page so you can have an idea on how to create one.
+In order to create your app, please check the [template](pages/index.tsx) page.
 
 ## UI
 
 We are using Mantine for our UI. You can see available components [here](https://ui.mantine.dev/).
 
 See the list of reusable components:
+
 - [AppCard](components/AppCard/AppCard.tsx)
 - [AppDetailsHeader](components/AppDetailsHeader/AppDetailsHeader.tsx)
 - [ColorSchemeToggle](components/ColorSchemeToggle/ColorSchemeToggle.tsx)
