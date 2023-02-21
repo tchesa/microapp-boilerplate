@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { AppDetailsHeader, TextInputLeftComponent } from '@/components';
 import {
   Stack,
   Flex,
@@ -12,15 +11,18 @@ import {
   Grid,
   Button,
 } from '@mantine/core';
+import dynamic from 'next/dynamic';
+
+const TextInputLeftComponent = dynamic<any>(
+  () => import('microappui/TextInputLeftComponent'),
+  {
+    ssr: false,
+  }
+);
 
 const Home: FC = () => {
   return (
     <>
-      <AppDetailsHeader
-        title="Online curl command line builder"
-        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      />
-
       {/* TODO: Please add your micro app code here */}
       <Flex w="100%" justify="flex-start" align="flex-start">
         <Stack w={{ base: '100%', sm: '50%' }}>

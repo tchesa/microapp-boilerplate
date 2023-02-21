@@ -1,25 +1,24 @@
-import { useState } from 'react';
 import { AppProps } from 'next/app';
-import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
-import { LayoutProvider } from 'providers';
+import dynamic from 'next/dynamic';
+
+const UIProvider = dynamic<any>(() => import('microappui/UIProvider'), {
+  ssr: false,
+});
+const LayoutProvider = dynamic<any>(() => import('microappui/LayoutProvider'), {
+  ssr: false,
+});
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
-
   return (
-    <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{ colorScheme }}
+    <UIProvider>
+      <LayoutProvider
+        withFooter
+        // withAppHeader TODO: uncomment this when the app is published
+        // slug="process.env.NEXT_PUBLIC_APP_SLUG" TODO: uncomment this when the app is published
       >
-        <LayoutProvider>
-          <Component {...pageProps} />
-        </LayoutProvider>
-      </MantineProvider>
-    </ColorSchemeProvider>
+        <Component {...pageProps} />
+      </LayoutProvider>
+    </UIProvider>
   );
 }
