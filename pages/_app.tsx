@@ -15,7 +15,7 @@ export default function App(props: AppProps) {
       <LayoutProvider
         withFooter
         // withAppHeader TODO: uncomment this when the app is published
-        // slug="process.env.NEXT_PUBLIC_APP_SLUG" TODO: uncomment this when the app is published
+        // slug={process.env.NEXT_PUBLIC_APP_SLUG} TODO: uncomment this when the app is published
       >
         <Component {...pageProps} />
       </LayoutProvider>
