@@ -11,7 +11,7 @@ const nextConfig = {
     config.experiments = { topLevelAwait: true };
     config.plugins.push(
       new NextFederationPlugin({
-        name: 'microappboilerplate',
+        name: 'microapptest-cli',
         remotes: {
           microappui: `microappui@https://microapp-ui.vercel.app/_next/static/${
             isServer ? 'ssr' : 'chunks'

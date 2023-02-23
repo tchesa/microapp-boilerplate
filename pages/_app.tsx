@@ -1,3 +1,4 @@
+import { Loader, LoadingOverlay } from '@mantine/core';
 import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 
@@ -6,6 +7,13 @@ const UIProvider = dynamic<any>(() => import('microappui/UIProvider'), {
 });
 const LayoutProvider = dynamic<any>(() => import('microappui/LayoutProvider'), {
   ssr: false,
+  loading: () => (
+    <LoadingOverlay
+      loader={<Loader color="dark" size="xl" />}
+      visible={true}
+      overlayBlur={2}
+    />
+  ),
 });
 
 export default function App(props: AppProps) {
