@@ -7,17 +7,21 @@ const nextConfig = {
     ? { assetPrefix: `https://${process.env.VERCEL_URL}` }
     : ''),
   webpack: (config, options) => {
-    const { isServer } = options;
     config.experiments = { topLevelAwait: true };
     config.plugins.push(
       new NextFederationPlugin({
-        name: 'microapptest-cli',
-        remotes: {
-          microappui: `microappui@https://microapp-ui.vercel.app/_next/static/${
-            isServer ? 'ssr' : 'chunks'
-          }/remoteEntry.js`,
+        name: 'microapp-boilerplate',
+        exposes: {
+          './Home': './pages/index',
         },
         filename: 'static/chunks/remoteEntry.js',
+        extraOptions: {
+          exposePages: true,
+          enableImageLoaderFix: true,
+          enableUrlLoaderFix: true,
+          skipSharingNextInternals: false,
+          automaticPageStitching: false,
+        },
       })
     );
 

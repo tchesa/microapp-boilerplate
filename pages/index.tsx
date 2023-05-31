@@ -11,20 +11,12 @@ import {
   Grid,
   Button,
 } from '@mantine/core';
-import dynamic from 'next/dynamic';
-
-const TextInputLeftComponent = dynamic<any>(
-  () => import('microappui/TextInputLeftComponent'),
-  {
-    ssr: false,
-  }
-);
 
 const Home: FC = () => {
   return (
     <>
       {/* TODO: Please add your micro app code here */}
-      <Flex w="100%" justify="flex-start" align="flex-start">
+      <Flex w="100%" justify="center" align="center">
         <Stack w={{ base: '100%', sm: '50%' }}>
           <Select
             w="100%"
@@ -33,12 +25,7 @@ const Home: FC = () => {
             label="HTTP Method"
           />
 
-          <TextInput
-            icon={<TextInputLeftComponent title="https://" />}
-            iconWidth={70}
-            w="100%"
-            label="URL"
-          />
+          <TextInput iconWidth={70} w="100%" label="URL" />
 
           <Textarea placeholder="Insert body elements here" label="Body" />
 
