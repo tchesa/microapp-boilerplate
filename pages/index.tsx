@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import {
   Stack,
-  Flex,
+  Center,
   Select,
   TextInput,
   Textarea,
@@ -14,7 +14,7 @@ import {
 
 const Home: FC = () => {
   return (
-    <Flex w="100%" justify="center" align="center">
+    <Center w={450} mx="auto">
       {/* TODO: Please add your micro app code here */}
       <Stack w={{ base: '100%', sm: '50%' }}>
         <Select
@@ -69,7 +69,7 @@ const Home: FC = () => {
           }}
         />
       </Stack>
-    </Flex>
+    </Center>
   );
 };
 
