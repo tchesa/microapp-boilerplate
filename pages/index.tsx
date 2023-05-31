@@ -14,64 +14,62 @@ import {
 
 const Home: FC = () => {
   return (
-    <>
+    <Flex w="100%" justify="center" align="center">
       {/* TODO: Please add your micro app code here */}
-      <Flex w="100%" justify="center" align="center">
-        <Stack w={{ base: '100%', sm: '50%' }}>
-          <Select
-            w="100%"
-            data={['GET', 'POST', 'PUT', 'DELETE']}
-            placeholder="Select a method"
-            label="HTTP Method"
-          />
+      <Stack w={{ base: '100%', sm: '50%' }}>
+        <Select
+          w="100%"
+          data={['GET', 'POST', 'PUT', 'DELETE']}
+          placeholder="Select a method"
+          label="HTTP Method"
+        />
 
-          <TextInput iconWidth={70} w="100%" label="URL" />
+        <TextInput iconWidth={70} w="100%" label="URL" />
 
-          <Textarea placeholder="Insert body elements here" label="Body" />
+        <Textarea placeholder="Insert body elements here" label="Body" />
 
-          <Group grow>
-            <TextInput placeholder="Header key" label="Custom Headers" />
+        <Group grow>
+          <TextInput placeholder="Header key" label="Custom Headers" />
 
-            <TextInput placeholder="Header value" label="&nbsp;" />
-          </Group>
+          <TextInput placeholder="Header value" label="&nbsp;" />
+        </Group>
 
-          <Text underline weight={600} size={14}>
-            Add custom header
+        <Text underline weight={600} size={14}>
+          Add custom header
+        </Text>
+
+        <Grid grow>
+          <Grid.Col sm={6}>
+            <Checkbox label="JSON Content-type" />
+          </Grid.Col>
+
+          <Grid.Col sm={6}>
+            <Checkbox label="Accept self-signed certs" />
+          </Grid.Col>
+
+          <Grid.Col>
+            <Checkbox label="Verbose" />
+          </Grid.Col>
+        </Grid>
+
+        <Group position="apart">
+          <Text weight={700} size={16} align="left">
+            Preview
           </Text>
+          <Button color="dark">Copy</Button>
+        </Group>
 
-          <Grid grow>
-            <Grid.Col sm={6}>
-              <Checkbox label="JSON Content-type" />
-            </Grid.Col>
-
-            <Grid.Col sm={6}>
-              <Checkbox label="Accept self-signed certs" />
-            </Grid.Col>
-
-            <Grid.Col>
-              <Checkbox label="Verbose" />
-            </Grid.Col>
-          </Grid>
-
-          <Group position="apart">
-            <Text weight={700} size={16} align="left">
-              Preview
-            </Text>
-            <Button color="dark">Copy</Button>
-          </Group>
-
-          {/* Testing purposes only, please avoid inline styling and use Mantine or our reusable components */}
-          <div
-            style={{
-              height: 300,
-              width: '100%',
-              borderRadius: 4,
-              border: '1px solid #EAEAEA',
-            }}
-          />
-        </Stack>
-      </Flex>
-    </>
+        {/* Testing purposes only, please avoid inline styling and use Mantine or our reusable components */}
+        <div
+          style={{
+            height: 300,
+            width: '100%',
+            borderRadius: 4,
+            border: '1px solid #EAEAEA',
+          }}
+        />
+      </Stack>
+    </Flex>
   );
 };
 
