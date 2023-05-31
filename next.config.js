@@ -6,7 +6,7 @@ const nextConfig = {
   ...(process.env.NODE_ENV === 'production'
     ? { assetPrefix: `https://${process.env.VERCEL_URL}` }
     : ''),
-  webpack: (config, options) => {
+  webpack: (config) => {
     config.experiments = { topLevelAwait: true };
     config.plugins.push(
       new NextFederationPlugin({
