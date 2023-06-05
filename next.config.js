@@ -7,7 +7,6 @@ const nextConfig = {
     ? { assetPrefix: `https://${process.env.VERCEL_URL}` }
     : ''),
   webpack: (config) => {
-    config.experiments = { topLevelAwait: true };
     config.plugins.push(
       new NextFederationPlugin({
         name: 'microapp-boilerplate',
