@@ -3,9 +3,6 @@ const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 
 const nextConfig = {
   reactStrictMode: false,
-  ...(process.env.NODE_ENV === 'production'
-    ? { assetPrefix: `https://${process.env.VERCEL_URL}` }
-    : ''),
   webpack: (config) => {
     config.plugins.push(
       new NextFederationPlugin({
@@ -15,7 +12,6 @@ const nextConfig = {
         },
         filename: 'static/chunks/remoteEntry.js',
         extraOptions: {
-          exposePages: true,
           enableImageLoaderFix: true,
           enableUrlLoaderFix: true,
           skipSharingNextInternals: false,
