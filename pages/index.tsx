@@ -10,9 +10,13 @@ import {
   Text,
   Grid,
   Button,
+  CopyButton,
 } from '@mantine/core';
+
 import { useForm } from '@mantine/form';
 import MagicStickyIcon from './../images/magic-sticky.svg';
+import CopyIcon from './../images/copy.svg';
+
 import Image from 'next/image';
 
 const Home: FC = () => {
@@ -41,6 +45,15 @@ const Home: FC = () => {
       >
         <Box py={24} px={'16px'} w={{ base: '100%' }}>
           <form onSubmit={form.onSubmit((values) => console.log(values))}>
+            <TextInput
+              mb={'24px'}
+              placeholder="Input Text"
+              label="Input Text"
+              {...form.getInputProps('text')}
+            />
+
+            <Divider mb="24px" />
+
             <Select
               w="100%"
               data={['Option 1', 'Option 2', 'Option 3']}
@@ -58,15 +71,6 @@ const Home: FC = () => {
               min={1}
               label="Number"
               {...form.getInputProps('number')}
-            />
-
-            <Divider mb="24px" />
-
-            <TextInput
-              mb={'24px'}
-              placeholder="Input Text"
-              label="Input Text"
-              {...form.getInputProps('text')}
             />
 
             <Divider mb="24px" />
@@ -103,7 +107,26 @@ const Home: FC = () => {
       </Grid.Col>
       <Grid.Col sm={6}>
         <Box p="20px">
-          <Flex mt="112px" justify="center" align="center">
+          <Flex mt="112px" direction="column" justify="center" align="center">
+            <CopyButton value="Text to be copied">
+              {({ copied, copy }) => (
+                <Button
+                  mb={50}
+                  size="sm"
+                  px={8}
+                  variant="default"
+                  onClick={copy}
+                >
+                  <Image
+                    alt="Copy icon"
+                    width={12}
+                    height={12}
+                    src={CopyIcon}
+                  />
+                  <Text ml="6px">{copied ? 'Copied' : 'Copy'}</Text>
+                </Button>
+              )}
+            </CopyButton>
             <Text size="14px" color="#202123">
               Right Side Content
             </Text>
