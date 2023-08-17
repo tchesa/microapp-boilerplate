@@ -1,75 +1,123 @@
 import { FC } from 'react';
 import {
-  Stack,
-  Center,
   Select,
   TextInput,
+  Box,
+  Flex,
+  NumberInput,
   Textarea,
-  Group,
+  Divider,
   Text,
-  Checkbox,
   Grid,
   Button,
+  CopyButton,
 } from '@mantine/core';
 
+import { useForm } from '@mantine/form';
+
 const Home: FC = () => {
+  const form = useForm({
+    initialValues: {
+      text: '',
+      number: 1,
+      dropdown: '',
+      textarea: '',
+    },
+    validate: {
+      text: (value) => !value.trim().length,
+    },
+  });
+
   return (
-    <Center w={450} mx="auto">
-      {/* TODO: Please add your micro app code here */}
-      <Stack w={{ base: '100%', sm: '50%' }}>
-        <Select
-          w="100%"
-          data={['GET', 'POST', 'PUT', 'DELETE']}
-          placeholder="Select a method"
-          label="HTTP Method"
-        />
+    <Grid h={'100%'} mt={0} mb={0}>
+      <Grid.Col
+        sx={(theme) => ({
+          boxShadow: theme.shadows.md,
+          backgroundColor: theme.colors.light[1],
+          borderRight: '1px solid',
+          borderColor: theme.colors.light[2],
+        })}
+        sm={6}
+      >
+        <Box py={24} px={'16px'} w={{ base: '100%' }}>
+          <form onSubmit={form.onSubmit((values) => console.log(values))}>
+            <TextInput
+              mb={'24px'}
+              placeholder="Input Text"
+              label="Input Text"
+              {...form.getInputProps('text')}
+            />
 
-        <TextInput iconWidth={70} w="100%" label="URL" />
+            <Divider mb="24px" />
 
-        <Textarea placeholder="Insert body elements here" label="Body" />
+            <Select
+              w="100%"
+              data={['Option 1', 'Option 2', 'Option 3']}
+              placeholder="E.g Option 1, Option 2, Option 3"
+              mb={'24px'}
+              label="Dropdown"
+              {...form.getInputProps('dropdown')}
+            />
 
-        <Group grow>
-          <TextInput placeholder="Header key" label="Custom Headers" />
+            <Divider mb="24px" />
 
-          <TextInput placeholder="Header value" label="&nbsp;" />
-        </Group>
+            <NumberInput
+              w="100%"
+              mb={'24px'}
+              min={1}
+              label="Number"
+              {...form.getInputProps('number')}
+            />
 
-        <Text underline weight={600} size={14}>
-          Add custom header
-        </Text>
+            <Divider mb="24px" />
 
-        <Grid grow>
-          <Grid.Col sm={6}>
-            <Checkbox label="JSON Content-type" />
-          </Grid.Col>
+            <Textarea
+              autosize
+              minRows={3}
+              mb={'24px'}
+              placeholder="Textarea"
+              label="Textarea"
+              {...form.getInputProps('textarea')}
+            />
 
-          <Grid.Col sm={6}>
-            <Checkbox label="Accept self-signed certs" />
-          </Grid.Col>
+            <Divider mb="24px" />
 
-          <Grid.Col>
-            <Checkbox label="Verbose" />
-          </Grid.Col>
-        </Grid>
-
-        <Group position="apart">
-          <Text weight={700} size={16} align="left">
-            Preview
-          </Text>
-          <Button color="dark">Copy</Button>
-        </Group>
-
-        {/* Testing purposes only, please avoid inline styling and use Mantine or our reusable components */}
-        <div
-          style={{
-            height: 300,
-            width: '100%',
-            borderRadius: 4,
-            border: '1px solid #EAEAEA',
-          }}
-        />
-      </Stack>
-    </Center>
+            <Flex justify="flex-end">
+              <Button
+                disabled={!form.isValid()}
+                size="md"
+                color="violet"
+                type="submit"
+              >
+                <Text>Submit Button</Text>
+              </Button>
+            </Flex>
+          </form>
+        </Box>
+      </Grid.Col>
+      <Grid.Col sm={6}>
+        <Box p="20px">
+          <Flex mt="112px" direction="column" justify="center" align="center">
+            <CopyButton value="Text to be copied">
+              {({ copied, copy }) => (
+                <Button
+                  mb={50}
+                  size="sm"
+                  px={8}
+                  variant="default"
+                  onClick={copy}
+                >
+                  <Text>{copied ? 'Copied' : 'Copy'}</Text>
+                </Button>
+              )}
+            </CopyButton>
+            <Text size="14px" color="#202123">
+              Right Side Content
+            </Text>
+          </Flex>
+        </Box>
+      </Grid.Col>
+    </Grid>
   );
 };
 
