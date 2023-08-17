@@ -14,10 +14,6 @@ import {
 } from '@mantine/core';
 
 import { useForm } from '@mantine/form';
-import MagicStickyIcon from './../images/magic-sticky.svg';
-import CopyIcon from './../images/copy.svg';
-
-import Image from 'next/image';
 
 const Home: FC = () => {
   const form = useForm({
@@ -93,13 +89,7 @@ const Home: FC = () => {
                 color="violet"
                 type="submit"
               >
-                <Image
-                  alt="icon"
-                  width={14}
-                  height={14}
-                  src={MagicStickyIcon}
-                />
-                <Text ml="6px">Submit Button</Text>
+                <Text>Submit Button</Text>
               </Button>
             </Flex>
           </form>
@@ -117,13 +107,7 @@ const Home: FC = () => {
                   variant="default"
                   onClick={copy}
                 >
-                  <Image
-                    alt="Copy icon"
-                    width={12}
-                    height={12}
-                    src={CopyIcon}
-                  />
-                  <Text ml="6px">{copied ? 'Copied' : 'Copy'}</Text>
+                  <Text>{copied ? 'Copied' : 'Copy'}</Text>
                 </Button>
               )}
             </CopyButton>
