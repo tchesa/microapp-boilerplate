@@ -29,13 +29,13 @@ const Home: FC = () => {
   });
 
   return (
-    <Grid h={'100%'} mt={0} mb={0}>
+    <Grid h={'100%'} m={0}>
       <Grid.Col
         sx={(theme) => ({
           boxShadow: theme.shadows.md,
-          backgroundColor: theme.colors.light[1],
+          backgroundColor: '#FDFDFD',
           borderRight: '1px solid',
-          borderColor: theme.colors.light[2],
+          borderColor: '#D9D9D9',
         })}
         sm={6}
       >
