@@ -15,7 +15,11 @@ import {
 
 import { useForm } from '@mantine/form';
 
-const Home: FC = () => {
+type HomeProps = {
+  theme: string;
+};
+
+const Home: FC<HomeProps> = ({ theme }) => {
   const form = useForm({
     initialValues: {
       text: '',
@@ -40,6 +44,7 @@ const Home: FC = () => {
         sm={6}
       >
         <Box py={24} px={'16px'} w={{ base: '100%' }}>
+          <h1>Current theme: {theme}</h1>
           <form onSubmit={form.onSubmit((values) => console.log(values))}>
             <TextInput
               mb={'24px'}
