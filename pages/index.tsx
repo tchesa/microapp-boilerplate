@@ -63,9 +63,7 @@ const Home: React.FC<HomeProps> = (props) => {
           >
             {/* Display the home page text in the selected language */}
             {translations[appLang].HOME_TEXT}
-            {/************************
-          WRITE YOUR CODE HERE
-        *************************/}
+            <h1>tchesa/microapp-boilerplate</h1>
           </Grid.Col>
         </Grid>
       </MantineProvider>
