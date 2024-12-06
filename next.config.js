@@ -1,9 +1,13 @@
+const { MicroappNextFederationPlugin } = require('@microapp-io/scripts');
 /** @type {import('next').NextConfig} */
 const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 
 const nextConfig = {
   reactStrictMode: false,
-  webpack: (config) => {
+  webpack: (config, options) => {
+    if (!options.isServer) {
+      config.plugins.push(new MicroappNextFederationPlugin());
+    }
     config.plugins.push(
       new NextFederationPlugin({
         name: 'microapp-boilerplate',
